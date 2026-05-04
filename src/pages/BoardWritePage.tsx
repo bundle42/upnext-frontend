@@ -68,10 +68,19 @@ function BoardWritePage() {
         {/* 파일 */}
         <div className="mb-6">
           <label className="block mb-1 font-medium">파일 업로드</label>
-          <input
-            type="file"
-            onChange={(e) => setFile(e.target.files?.[0] || null)}
-          />
+
+          <label className="cursor-pointer inline-block px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+            파일 선택
+            <input
+              type="file"
+              className="hidden"
+              onChange={(e) => setFile(e.target.files?.[0] || null)}
+            />
+          </label>
+
+          {file && (
+            <p className="mt-2 text-sm text-gray-600">선택됨: {file.name}</p>
+          )}
         </div>
 
         {/* 버튼 */}
