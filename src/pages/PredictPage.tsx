@@ -1,5 +1,6 @@
 import { useState } from "react";
 import client from "../api/client";
+import VisualizationPage from "./VisualizationPage";
 
 function PredictPage() {
   const [selectedStock, setSelectedStock] = useState("삼성전자");
@@ -91,7 +92,7 @@ function PredictPage() {
             {/* 핵심 지표 */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="bg-white p-4 rounded-2xl shadow text-center">
-                <h4 className="text-gray-500 text-sm">예측 종가</h4>
+                <h4 className="text-gray-500 text-sm">다음 날 예측 종가</h4>
                 <p className="text-xl font-bold">
                   {next.predicted_next_close.toLocaleString()}원
                 </p>
@@ -204,6 +205,7 @@ function PredictPage() {
                 </tbody>
               </table>
             </div>
+            <VisualizationPage prediction={prediction} />
           </>
         )}
       </div>
